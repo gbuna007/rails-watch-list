@@ -3,6 +3,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    @bookmark = Bookmark.new
   end
 
   def show

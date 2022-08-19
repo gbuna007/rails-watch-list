@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @list = List.find(params[:list_id])
+    @list = List.find_by_id(params[:list_id]).nil? ? List.find(params[:bookmark][:list_id]) : List.find_by_id(params[:list_id])
     @movie = Movie.find(params[:bookmark][:movie_id])
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
