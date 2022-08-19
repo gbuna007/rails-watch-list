@@ -35,7 +35,7 @@
       <div class="form new-bookmark">
         <%= simple_form_for([@bookmark]) do |f| %>
           <%= f.input :comment %>
-          <%= f.association :movie, collection: Movie.all.order(:title), prompt: "Choose a Movie" %>
+          <%= f.association :movie, collection: Movie.all.order(:title), prompt: "Choose a Movie", input_html: {data: {controller: "tom_select"}} %>
           <%= f.association :list, collection: List.all.order(:name), prompt: "Choose a List" %>
           <%= f.submit %>
         <% end %>

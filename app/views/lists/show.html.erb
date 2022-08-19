@@ -20,7 +20,7 @@
           <p><strong>Rating: </strong><%= bookmark.movie.rating %></p>
           <p>"<%= bookmark.comment %>"</p>
           <%= link_to "Delete this bookmark",
-                list_bookmark_path(bookmark),
+                bookmark_path(bookmark),
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "mt-2 btn btn-outline-danger rounded" %>
         </div>
       <% end %>
