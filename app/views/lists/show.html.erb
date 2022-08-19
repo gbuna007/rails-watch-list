@@ -1,17 +1,31 @@
-<h1><%= @list.name %>'s Details</h1>
+<div class="row bg-info">
+  <div class="col-10 mx-auto pb-2">
+    <div class="page-title d-flex align-items-center justify-content-between mt-3">
+      <h1 class="m-0"><%= @list.name %>'s Details</h1>
+      <%= link_to 'New Bookmark', new_list_bookmark_path(@list), class: "btn btn-success h-50" %>
+    </div>
+  </div>
+</div>
 
-<h2>Bookmarks</h2>
-<ul>
-  <% @list.bookmarks.each do |bookmark| %>
-   <li>
-    <p>Comment: <%= bookmark.comment %></p>
-    <p><%= bookmark.movie.title %></p>
-    <p><%= bookmark.movie.overview %></p>
-    <p><%= bookmark.movie.rating %></p>
-    <%= image_tag bookmark.movie.poster_url, alt: "movie poster", width: 200 %>
-    <%= link_to "Delete this bookmark",
-          list_bookmark_path(bookmark),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-   </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-10 mx-auto mt-3">
+    <h2>Bookmarks</h2>
+    <div class="bookmark-cards row row-cols-4">
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="bookmark-card border sm-shadow py-2 bg-white">
+          <%= image_tag bookmark.movie.poster_url, alt: "movie poster", width:250 %>
+
+          <h3 class="mt-1"><%= bookmark.movie.title %></h3>
+          <p><em><%= bookmark.movie.overview%></em></p>
+          <p><strong>Rating: </strong><%= bookmark.movie.rating %></p>
+          <p>"<%= bookmark.comment %>"</p>
+          <%= link_to "Delete this bookmark",
+                list_bookmark_path(bookmark),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "mt-2 btn btn-outline-danger rounded" %>
+        </div>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

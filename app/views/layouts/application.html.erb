@@ -11,10 +11,10 @@
   </head>
 
   <body>
-    <div class="navbar">
-      <h1>WatchList!!</h1>
-      <%= link_to 'My Lists', lists_path %>
-      <%= link_to 'New List', new_list_path %>
+    <div class="navbar px-3 bg-light bg-gradient">
+      <h1 class="flex-grow-1">WatchList!!</h1>
+      <%= link_to 'My Lists', lists_path, class: "btn btn-outline-primary rounded me-3" %>
+      <%= link_to 'New List', new_list_path, class: "btn btn-outline-success rounded" %>
     </div>
     <div class="container">
       <%= yield %>
