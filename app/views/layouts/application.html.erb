@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="navbar">
+      <h1>WatchList!!</h1>
+      <%= link_to 'My Lists', lists_path %>
+      <%= link_to 'New List', new_list_path %>
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
